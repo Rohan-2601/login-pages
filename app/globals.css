@@ -82,6 +82,109 @@ body {
   animation: heroNavEnter 680ms ease-out both;
 }
 
+@keyframes heroNavFloat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes heroLogoGlow {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 241, 216, 0);
+  }
+  100% {
+    text-shadow: 0 4px 14px rgba(255, 241, 216, 0.4);
+  }
+}
+
+.hero-glass-nav {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glass-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.06) 38%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-glass-nav:hover {
+  animation: heroNavFloat 260ms ease-out both;
+}
+
+.hero-logo-mark {
+  position: relative;
+  transition: transform 220ms ease;
+}
+
+.hero-logo-mark:hover {
+  animation: heroLogoGlow 320ms ease-out both;
+  transform: translateY(-1px);
+}
+
+.hero-nav-link {
+  position: relative;
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  color: #4e4236;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.hero-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #382a1f, #7a5f46);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.hero-nav-link:hover {
+  color: #241b13;
+  /* background-color removed */
+}
+
+.hero-nav-link:hover::after,
+.hero-nav-link-active::after {
+  transform: scaleX(1);
+}
+
+.hero-nav-link-active {
+  color: #251c14;
+  /* background-color removed */
+}
+
+.hero-nav-cta {
+  transition: transform 180ms ease, background-color 180ms ease,
+    box-shadow 220ms ease;
+}
+
+.hero-nav-cta:hover {
+  transform: translateY(-1px);
+  background-color: #17110c;
+  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.95);
+}
+
+.hero-nav-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 22px -16px rgba(0, 0, 0, 0.95);
+}
+
 .hero-cta-glow {
   animation: heroCtaGlow 2.2s ease-in-out infinite alternate;
 }
@@ -107,9 +210,17 @@ body {
   .hero-bg-motion,
   .hero-content-reveal,
   .hero-nav-enter,
+  .hero-glass-nav:hover,
+  .hero-logo-mark:hover,
   .hero-cta-glow,
   .login-image-motion {
     animation: none;
     transform: none;
+  }
+
+  .hero-nav-link,
+  .hero-nav-link::after,
+  .hero-nav-cta {
+    transition: none;
   }
 }
