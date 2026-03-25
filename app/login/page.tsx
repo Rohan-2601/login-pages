@@ -2,24 +2,25 @@ import Image from "next/image";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-zinc-100 px-4 py-8 md:px-8 md:py-12">
-      <main className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-2xl md:min-h-170 md:grid-cols-2">
-        <section className="relative min-h-65 md:min-h-full">
+    <div className="min-h-screen bg-stone-200 px-4 py-8 md:px-8 md:py-12">
+      <main className="mx-auto grid w-full max-w-6xl overflow-hidden rounded-3xl border border-stone-300 bg-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] md:min-h-170 md:grid-cols-2">
+        <section className="group relative min-h-65 md:min-h-full">
           <Image
             src="/login.png"
             alt="Login visual"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-[50%_78%] login-image-motion"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-linear-to-tr from-zinc-900/55 via-zinc-900/20 to-transparent" />
-          <div className="absolute bottom-6 left-6 max-w-xs text-white md:bottom-10 md:left-10">
+          <div className="absolute inset-0 bg-linear-to-tr from-zinc-950/65 via-zinc-900/35 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-linear-to-t from-zinc-950/75 to-transparent" />
+          <div className="absolute bottom-6 left-6 max-w-sm text-white md:bottom-10 md:left-10">
             <p className="text-xs uppercase tracking-[0.2em] text-zinc-100/85">
-              Workspace Login
+              Curated Workspace
             </p>
             <h1 className="mt-3 text-2xl font-semibold leading-tight md:text-3xl">
-              Welcome back. Sign in to continue.
+              Craft your day with a focused login experience.
             </h1>
           </div>
         </section>
@@ -27,10 +28,13 @@ export default function LoginPage() {
         <section className="flex items-center p-6 md:p-12">
           <form className="w-full max-w-md space-y-5" action="#" method="post">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-zinc-900">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+                Welcome Back
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900">
                 Log In
               </h2>
-              <p className="mt-2 text-sm text-zinc-600">
+              <p className="mt-2 text-sm leading-6 text-zinc-600">
                 Use your email and password to access your account.
               </p>
             </div>
@@ -49,7 +53,7 @@ export default function LoginPage() {
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900/20"
+                className="w-full rounded-xl border border-stone-300 bg-stone-50 px-4 py-3 text-sm outline-none transition placeholder:text-zinc-400 focus:border-amber-600 focus:bg-white focus:ring-2 focus:ring-amber-200"
               />
             </div>
 
@@ -67,7 +71,7 @@ export default function LoginPage() {
                 required
                 autoComplete="current-password"
                 placeholder="Enter your password"
-                className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900/20"
+                className="w-full rounded-xl border border-stone-300 bg-stone-50 px-4 py-3 text-sm outline-none transition placeholder:text-zinc-400 focus:border-amber-600 focus:bg-white focus:ring-2 focus:ring-amber-200"
               />
             </div>
 
@@ -75,12 +79,15 @@ export default function LoginPage() {
               <label className="inline-flex items-center gap-2 text-zinc-600">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-zinc-300"
+                  className="h-4 w-4 rounded border-stone-300 text-amber-700 focus:ring-amber-300"
                   name="remember"
                 />
                 Remember me
               </label>
-              <a href="#" className="font-medium text-zinc-900 hover:underline">
+              <a
+                href="#"
+                className="font-medium text-zinc-800 underline-offset-4 transition hover:text-amber-700 hover:underline"
+              >
                 Forgot password?
               </a>
             </div>
@@ -91,6 +98,16 @@ export default function LoginPage() {
             >
               Sign In
             </button>
+
+            <p className="text-center text-sm text-zinc-600">
+              New here?{" "}
+              <a
+                href="#"
+                className="font-semibold text-zinc-900 underline-offset-4 transition hover:text-amber-700 hover:underline"
+              >
+                Create an account
+              </a>
+            </p>
           </form>
         </section>
       </main>

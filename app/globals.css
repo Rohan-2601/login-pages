@@ -22,5 +22,94 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "Manrope", "Segoe UI", sans-serif;
+}
+
+@keyframes heroDrift {
+  0% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate3d(-0.8%, 0.5%, 0);
+  }
+  100% {
+    transform: scale(1.09) translate3d(-1.2%, 1.1%, 0);
+  }
+}
+
+@keyframes heroContentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-bg-motion {
+  animation: heroDrift 28s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-content-reveal {
+  animation: heroContentReveal 780ms ease-out both;
+}
+
+@keyframes heroNavEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroCtaGlow {
+  0% {
+    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.78);
+  }
+  100% {
+    box-shadow: 0 24px 46px -18px rgba(0, 0, 0, 0.86);
+  }
+}
+
+.hero-nav-enter {
+  animation: heroNavEnter 680ms ease-out both;
+}
+
+.hero-cta-glow {
+  animation: heroCtaGlow 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes loginKenBurns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.02) translate3d(-0.8%, 0.4%, 0);
+  }
+  100% {
+    transform: scale(1.04) translate3d(-1.2%, 0.8%, 0);
+  }
+}
+
+.login-image-motion {
+  animation: loginKenBurns 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-motion,
+  .hero-content-reveal,
+  .hero-nav-enter,
+  .hero-cta-glow,
+  .login-image-motion {
+    animation: none;
+    transform: none;
+  }
 }
